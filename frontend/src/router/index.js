@@ -44,18 +44,44 @@ const router = createRouter({
     {
       path: '/doctor',
       name: 'doctor',
-      component: () => import('../views/UserDashboard.vue')
+      component: () => import('../views/DoctorDashboard.vue')
     },
     {
-      path: '/pathistory',
+      path: '/pathistory/:docid/:patid',
       name: 'pathistory',
       component: () => import('../components/Patient_history.vue')
     },
     {
-      path: '/department',
+      path: '/department/:dept',
       name: 'Department',
       component: () => import('../components/Department.vue')
+    },
+    {
+      path: '/qual/:id',
+      name: 'Qualification',
+      component: () => import('../components/Doc_qual.vue')
+    },
+    {
+      path: '/docavail/:docid/:patid',
+      name: 'Available',
+      component: () => import('../components/Doctor_avail.vue')
+    },
+    {
+      path: '/updatepat/:id/:patid/:docid',
+      name: 'MedicalRecord',
+      component: () => import('../components/PatientRecord.vue')
+    },
+    {
+      path: '/docedit/:useId',
+      name: 'DoctorEdit',
+      component: () => import('../components/Edit_doc.vue')
+    },
+    {
+      path: '/patedit/:id',
+      name: 'PatientEdit',
+      component: () => import('../components/Edit_pat.vue')
     }
+
   ]
 })
 

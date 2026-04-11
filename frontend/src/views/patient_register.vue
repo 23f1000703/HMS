@@ -1,4 +1,6 @@
 <script setup>
+    import { useRouter } from 'vue-router'
+    const router = useRouter()
     import { ref } from 'vue';
 
      const email = ref('');
@@ -62,10 +64,11 @@
         if (!response.ok){
             const errordata= await response.json()
             console.log(errordata)
-            alert(`login failed:${errordata.message}`)
+            alert(`registration failed:${errordata.message}`)
             return
         }
-    
+    alert("Successfully register")
+    router.push('/login')
 
     }
 </script>

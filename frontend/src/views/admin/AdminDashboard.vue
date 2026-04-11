@@ -6,17 +6,10 @@ import UserList from '../../components/admin/UserList.vue'
 import AppointmentTable from '../../components/admin/AppointmentTable.vue'
 
 
-// Dummy data (baad me API se replace karna)
-
-//    const doctors = [
-//   { name: "Dr. Sharma" },
-//   { name: "Dr. Verma" }
-// ]
-
 const doctors = ref([])
 const patients =ref([])
 
-// 🔥 API function
+
 async function fetchDoctors() {
   const response = await fetch('http://127.0.0.1:5000/api/doclist')
   const data = await response.json()
@@ -26,7 +19,6 @@ async function fetchDoctors() {
   doctors.value = data
 
 }
-
 
 async function fetchpatient() {
   const response = await fetch('http://127.0.0.1:5000/api/patlist')

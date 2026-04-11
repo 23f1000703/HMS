@@ -45,15 +45,32 @@ def index():
         'message' : "this is my app"
     }
 
-from controllers.authentication_apis import LoginApi,LogoutApi,RegisterApi
-from controllers.Doctor_apis import DoctorList
-from controllers.Patient_api import PatientList
+from controllers.authentication_apis import LoginApi,LogoutApi,RegisterApi,BlackList,Delete,DoctorEdit,PatientEdit
+from controllers.Doctor_apis import DoctorList,AppointmentData,Complete,BookSlot,Ids,Deleteappoint
+from controllers.Patient_api import PatientList,PatientAppointment,YourAppointment,UpdatePatient,Name,RecordPatient,PatientHistory,AppointmentDone
 
 api.add_resource(LoginApi,'/login')
+api.add_resource(BlackList,'/blacklist')
 api.add_resource(LogoutApi,'/logout')
 api.add_resource(RegisterApi,'/register')
 api.add_resource(DoctorList,'/doclist')
+api.add_resource(Delete,'/delete/<int:id>')
+api.add_resource(Deleteappoint,'/deleteappoint/<int:id>')
+api.add_resource(DoctorEdit,'/docedit')
+api.add_resource(PatientEdit,'/patientedit')
 api.add_resource(PatientList,'/patlist')
+api.add_resource(PatientAppointment,'/patappointments')
+api.add_resource(YourAppointment,'/yourappointments')
+api.add_resource(AppointmentDone,'/appointmentsdone')
+api.add_resource(AppointmentData,'/appointment')
+api.add_resource(UpdatePatient,'/updatepat')
+api.add_resource(Name,'/name')
+api.add_resource(RecordPatient,'/recpat')
+api.add_resource(PatientHistory,'/pathis')
+api.add_resource(BookSlot,'/bookslot')
+api.add_resource(Ids,'/userid')
+api.add_resource(Complete,'/comp')
+
 
 if __name__ == "__main__":
     app.run(debug=True)

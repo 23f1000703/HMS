@@ -1,6 +1,8 @@
 from controllers.database import db
 from flask_security import UserMixin,RoleMixin
 from datetime import datetime
+from sqlalchemy.sql import func
+
 
 class User(db.Model,UserMixin):
     id = db.Column(db.Integer,primary_key=True)
@@ -28,9 +30,10 @@ class Doctor(db.Model):
 
     name= db.Column(db.String(250),nullable =False)
     specialization = db.Column(db.String(150),nullable = False)
+    qualification = db.Column(db.String(250),nullable = False)
     experience_years = db.Column(db.Integer,nullable = False)
 
-    user = db.relationship('User', backref='doctor_profile')
+    user = db.relationship('User', backref=db.backref('doctor_profile', cascade="all, delete-orphan", uselist=False))
 
 class Patient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -43,7 +46,7 @@ class Patient(db.Model):
     blood_group = db.Column(db.String(10))
     address = db.Column(db.Text,nullable = False)
 
-    user = db.relationship('User', backref='patient_profile')
+    user = db.relationship('User', backref=db.backref('patient_profile', cascade="all, delete-orphan", uselist=False))
 
 class Appointment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -52,22 +55,25 @@ class Appointment(db.Model):
     patient_id = db.Column(db.Integer, db.ForeignKey('patient.id'), nullable=False)
 
     appointment_date = db.Column(db.Date)
-    appointment_time = db.Column(db.Time)
+    appointment_time = db.Column(db.String(150),nullable =False)
 
-    status = db.Column(db.String(20), default="Pending")
+    status = db.Column(db.String(20), default="Pending",server_default="Pending")
     # Pending / Approved / Completed / Cancelled
 
-    doctor = db.relationship('Doctor', backref='appointments')
-    patient = db.relationship('Patient', backref='appointments')
+    doctor = db.relationship('Doctor', backref=db.backref('appointments', cascade="all, delete-orphan"))
+    patient = db.relationship('Patient', backref=db.backref('appointments', cascade="all, delete-orphan"))
 
 class MedicalRecord(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'), nullable=False)
+    patient_id = db.Column(db.Integer, db.ForeignKey('patient.id'), nullable=False)
 
     appointment_id = db.Column(db.Integer, db.ForeignKey('appointment.id'))
+    visit_type = db.Column(db.String(200),nullable =False)
     diagnosis = db.Column(db.Text)
     notes = db.Column(db.Text)
 
-    appointment = db.relationship('Appointment', backref='medical_record')
+    appointment = db.relationship('Appointment', backref=db.backref('medical_record', cascade="all, delete-orphan", uselist=False))
 
 class Prescription(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -77,16 +83,8 @@ class Prescription(db.Model):
     dosage = db.Column(db.String(100))
     duration = db.Column(db.String(100))
 
-    medical_record = db.relationship('MedicalRecord', backref='prescriptions')
+    medical_record = db.relationship('MedicalRecord', backref=db.backref('prescriptions', cascade="all, delete-orphan"))
 
-class Bill(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-
-    appointment_id = db.Column(db.Integer, db.ForeignKey('appointment.id'))
-    amount = db.Column(db.Float)
-    payment_status = db.Column(db.String(20), default="Unpaid")
-
-    appointment = db.relationship('Appointment', backref='bill')
 
 
     

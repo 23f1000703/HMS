@@ -4,7 +4,6 @@
 <template>
   <div class="home">
 
-    <!-- Hero Section -->
     <div class="hero text-center">
       <h1>Hospital Management System</h1>
       <p>Manage Patients, Doctors and Appointments Easily</p>

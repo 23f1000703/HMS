@@ -7,6 +7,7 @@
      const email = ref('');
      const password = ref('');
      const name = ref ('');
+     const qualification = ref ('');
      const specialization = ref('');
      const experience_year = ref ('');
 
@@ -43,6 +44,7 @@
             password : password.value,
             role: 'doctor',
             name:name.value,
+            qualification:qualification.value,
             specialization:specialization.value,
             experience_years: experience_year.value
         }
@@ -59,10 +61,11 @@
         if (!response.ok){
             const errordata= await response.json()
             console.log(errordata)
-            alert(`login failed:${errordata.message}`)
+            alert(`Submission failed:${errordata.message}`)
             return
         }
-    
+    alert("Successfully register")
+    router.push('/admin')
 
     }
     function Back(){
@@ -90,6 +93,11 @@
                     <div class="mb-3">
                         <label for="exampleInputName" class="form-label">Enter your name</label>
                         <input type="text" class="form-control" id="exampleInputname" aria-describedby="nameHelp" v-model="name">
+                        <div id="name" class="form-text">*</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputName" class="form-label">Enter Qualification</label>
+                        <input type="text" class="form-control" id="exampleInputname" aria-describedby="nameHelp" v-model="qualification">
                         <div id="name" class="form-text">*</div>
                     </div>
                     <div class = "mb-3">

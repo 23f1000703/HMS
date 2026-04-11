@@ -57,9 +57,11 @@
         else{
             const data = await response.json();
             console.log(data)
-
+            
+            localStorage.setItem('user_id',data.user_details.user_id)
             localStorage.setItem('token',data.user_details.auth_token)
             localStorage.setItem('role',data.user_details.roles[0])
+            
             // localStorage.removeItem('token')
             alert(data.message)
 

@@ -1,10 +1,14 @@
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
+const patId=localStorage.getItem("patId")
+const useId =localStorage.getItem("user_id")
+console.log(useId)
 const role = localStorage.getItem("role")
-console.log(role)
+
 
     async function logout(){
       const token  = localStorage.getItem("token")
@@ -19,10 +23,19 @@ console.log(role)
     )
     console.log(response)
     if (response.ok){
+      localStorage.clear()
       router.push('/login')
     }
   }
 
+
+function goToHistory(docid,patid){
+  router.push(`/pathistory/${docid}/${patid}`)
+}
+function Edit(id){
+  router.push(`/patedit/${id}`)
+}
+console.log("Navbar",patId,role)
 </script>
 
 <template>
@@ -31,9 +44,9 @@ console.log(role)
     <a class="navbar-brand">Hospital Management System</a>
 
       <div v-if=" role === 'patient'">
-        <RouterLink to="/pathhistory">Edit</RouterLink>
+        <button @click="Edit(useId)">Edit</button>
         |
-        <RouterLink to="/pathistory">History</RouterLink>
+        <button @click="goToHistory(docId,patId)">History</button>
         |
       </div>
       
