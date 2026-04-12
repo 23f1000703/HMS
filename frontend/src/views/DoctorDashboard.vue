@@ -79,7 +79,7 @@ function Available(docid,patid){
     <Navbar />
     <AdminHeader :docname="userName" :patname="'null'" />
     <AppointmentTable />
-    <div class="container mt-4">
+    <div class="container-fluid mt-4 px-4">
 
     <h2 class="mb-3">Assigned Patient</h2>
 
@@ -105,3 +105,88 @@ function Available(docid,patid){
   </div>
 
 </template>
+
+<style scoped>
+/* FULL WIDTH CONTAINER */
+.container-fluid {
+  width: 100%;
+}
+
+/* HEADING CENTER */
+.container-fluid h2 {
+  text-align: center;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+/* OUTER BOX */
+.container-fluid .border {
+  width: 100%;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: none !important;
+}
+
+/* EACH PATIENT ROW */
+.container-fluid .d-flex {
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  transition: 0.25s;
+}
+
+/* HOVER */
+.container-fluid .d-flex:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+/* PATIENT NAME */
+.fs-7 {
+  font-size: 15px !important;
+  font-weight: 500;
+  color: #1e293b !important;
+}
+
+/* VIEW BUTTON */
+.btn-warning {
+  background: #facc15;
+  border: none;
+  color: #1e293b;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 13px;
+}
+
+.btn-warning:hover {
+  background: #eab308;
+}
+
+/* PROVIDE AVAILABILITY BUTTON */
+.container.text-end {
+  width: 100%;
+  padding: 0 20px;
+  margin-top: 20px;
+  text-align: right;   /* ⬅️ right aligned */
+}
+
+/* BUTTON STYLE */
+.btn-success {
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  background: #22c55e;
+  border: none;
+}
+
+.btn-success:hover {
+  background: #16a34a;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+  transform: translateY(-2px);
+}
+</style>

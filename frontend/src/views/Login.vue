@@ -113,3 +113,72 @@
     </div>
 </template>
 
+
+<style scoped>
+/* PAGE BACKGROUND */
+body {
+  background: linear-gradient(to right, #afbbc2, #dbe5ea);
+}
+
+/* CENTER CARD */
+.col-6 {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* HEADING */
+h1 {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 25px;
+}
+
+/* LABEL */
+.form-label {
+  font-weight: 500;
+  color: #334155;
+}
+
+/* INPUT FIELDS */
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  transition: 0.3s;
+}
+
+/* INPUT FOCUS EFFECT */
+.form-control:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 5px rgba(56, 189, 248, 0.4);
+}
+
+/* HELP TEXT */
+.form-text {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* BUTTON */
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: #38bdf8;
+  border: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+.btn-primary:hover {
+  background: #0ea5e9;
+}
+
+/* SPACING */
+.mb-3 {
+  margin-bottom: 18px;
+}
+</style>

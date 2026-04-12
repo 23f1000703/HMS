@@ -8,21 +8,11 @@ const route = useRoute()
       <nav v-if="route.path == '/login' || route.path == '/patientregister' ||route.path == '/' " class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">Hospital Managment System</RouterLink>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <button><RouterLink class="nav-link" to="/login">Login</RouterLink></button>
-              </li>
-            </ul>
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <button><RouterLink class="nav-link" to="/patientregister">Register</RouterLink></button>
-              </li>
-            </ul>
-          </div>
+
+              <div class="ms-auto d-flex gap-2">
+              <RouterLink class="nav-btn login-btn" to="/login">Login</RouterLink>
+              <RouterLink class="nav-btn register-btn" to="/patientregister">Register</RouterLink>
+              </div>
         </div>
       </nav>
     <RouterView />
@@ -31,38 +21,50 @@ const route = useRoute()
 </template>
 
 <style scoped>
-/* NAVBAR DARK (matching soft bg) */
+/* NAVBAR BASE (SOFT BROWN) */
 .navbar {
-  background: #9e7b07 !important;   /* darker shade of your bg */
-  border-bottom: 1px solid #fbfbfb;
-  padding: 12px 20px;
+  background: #8b5e3c !important;   /* main brown */
+  padding: 14px 24px;
+  border-bottom: 1px solid #7a5134;
 }
 
-/* Logo */
+/* BRAND */
 .navbar-brand {
-  color: #c3ccd4 !important;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fef3c7 !important;  /* soft cream */
+  letter-spacing: 0.3px;
 }
 
-/* Links */
-.navbar .nav-link {
-  color: #e2e8f0 !important;
-  transition: 0.3s;
-}
-
-/* Hover */
-.navbar .nav-link:hover {
-  color: #ffffff !important;
-}
-
-/* Active route */
-.navbar .router-link-active {
-  color: #d7dfe2 !important;
+/* BUTTON BASE */
+.nav-btn {
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 14px;
   font-weight: 500;
+  transition: 0.25s;
 }
 
-/* Mobile icon */
-.navbar-toggler-icon {
-  filter: invert(1);
+/* LOGIN (LIGHT OUTLINE FEEL) */
+.login-btn {
+  color: #fef3c7;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.login-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* REGISTER (HIGHLIGHT BUTTON) */
+.register-btn {
+  background: #facc15;   /* golden highlight */
+  color: #3f2a1d;
+}
+
+.register-btn:hover {
+  background: #eab308;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 </style>

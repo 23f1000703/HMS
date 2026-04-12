@@ -10,6 +10,8 @@ function Create(){
 }
 const role = localStorage.getItem('role')
 </script>
+
+
 <template>
   <div class="container mt-3">
 
@@ -23,33 +25,66 @@ const role = localStorage.getItem('role')
     </div>
     
     <div v-if = "role === 'admin' ">
-      <h2>Welcome Admin</h2>
-     <div class="d-flex justify-content-between align-items-center mb-3">
-      
-      <div class="d-flex gap-2">
+      <h2>Welcome,</h2>
+      <h3><b>Admin</b></h3>
+     <div class="d-flex align-items-right mb-3">
 
-        <select v-model="searchType" class="form-select" style="width: 180px;">
-          <option disabled value="">Select Search Type</option>
-          <option value="patient">Patient Name</option>
-          <option value="doctor">Doctor Name</option>
-          <option value="department">Department</option>
-        </select>
-
-        <input 
-          v-model="searchQuery"
-          class="form-control" 
-          placeholder="Search..." 
-          style="width: 250px;" 
-        />
-
-        <button class="btn btn-primary" @click="handleSearch">
-          Search
-        </button>
-
-      </div>
-
-      <button type="button" class="btn btn-outline-dark" @click ='Create'>Create</button>
+      <button type="button" class="btn btn-success px-4 py-2" style="font-size: 15px; font-weight: 500;" @click ='Create'>Register Doctor</button>
      </div> 
     </div>
   </div>
 </template>
+
+<style scoped>
+/* REMOVE BOX LOOK */
+.container {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* WELCOME TEXT */
+h2:first-child {
+  font-size: 26px;
+  font-weight: 400;
+  color: #111b22;   /* soft grey */
+  margin-bottom: 0;
+}
+
+/* NAME (main highlight) */
+h2.text-uppercase {
+  font-size: 32px;
+  font-weight: 700;
+  color: #425ea0;   /* strong dark */
+  letter-spacing: 1px;
+}
+
+/* spacing between welcome and name */
+h2 + h2 {
+  margin-top: 5px;
+}
+
+/* ADMIN TITLE */
+h2 {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* SEARCH AREA (clean look, no heavy styling) */
+.form-select,
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+}
+
+/* BUTTON CLEAN STYLE */
+.btn-primary {
+  background: #38bdf8;
+  border: none;
+  border-radius: 6px;
+}
+
+.btn-outline-dark {
+  border-radius: 6px;
+}
+</style>

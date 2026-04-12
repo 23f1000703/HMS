@@ -41,6 +41,10 @@ async function Edit(){
         router.back()   
     }
 }
+
+function Back(){
+    router.back()
+}
 </script>
 
 <template>
@@ -95,5 +99,82 @@ async function Edit(){
     </div>
 
     <button class="btn btn-success mt-2" @click="Edit">Update</button>
+    <button class="btn btn-danger mt-2" @click="Back">Back</button>
   </div>
 </template>
+
+<style scoped>
+/* MAIN CONTAINER FIX */
+.container.mt-4 {
+  max-width: 500px;
+  margin: 40px auto;     /* ⬅️ center fix */
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* HEADING */
+h3 {
+  text-align: center;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+/* LABEL */
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* INPUTS */
+.form-control,
+.form-select,
+textarea {
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* FOCUS */
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 4px rgba(34, 197, 94, 0.3);
+}
+
+/* SPACING */
+.mb-2 {
+  margin-bottom: 12px;
+}
+
+/* BUTTON */
+.btn-success {
+  width: 100%;
+  border-radius: 8px;
+  padding: 9px;
+  font-size: 14px;
+  background: #22c55e;
+  border: none;
+}
+
+.btn-success:hover {
+  background: #16a34a;
+}
+.btn-danger {
+  width: 100%;
+  border-radius: 8px;
+  padding: 9px;
+  font-size: 14px;
+  background: #ef4444;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+</style>

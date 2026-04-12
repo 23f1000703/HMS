@@ -61,6 +61,9 @@ const response = await fetch('http://127.0.0.1:5000/api/recpat',{
         router.push('/doctor')
       }
 
+function Back(){
+  router.back()
+}
 
 getName()
 </script>
@@ -105,11 +108,100 @@ getName()
       </div>
     </div>
 
-    <div class="text-end">
+    <div>
       <button class="btn btn-success" @click="Updatepats">
         Save
+      </button>
+    </div>
+    <div class="text-end">
+      <button class="btn btn-danger" @click="Back">
+        Back
       </button>
     </div>
 
   </div>
 </template>
+
+<style scoped>
+/* MAIN CONTAINER */
+.container.mt-4 {
+  max-width: 750px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 28px 32px;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+/* PATIENT NAME */
+h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 5px;
+}
+
+/* MAIN TITLE */
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+/* SECTION TITLE */
+h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* LABEL */
+label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+/* INPUTS */
+.form-control,
+textarea {
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  padding: 9px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+/* FOCUS */
+.form-control:focus,
+textarea:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+}
+
+/* ROW SPACING */
+.row {
+  margin-bottom: 12px;
+}
+
+/* SAVE BUTTON */
+.btn-success {
+  border-radius: 10px;
+  padding: 8px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  background: #22c55e;
+  border: none;
+  transition: 0.25s;
+}
+
+.btn-success:hover {
+  background: #16a34a;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+  transform: translateY(-1px);
+}
+</style>

@@ -47,7 +47,7 @@ def index():
 
 from controllers.authentication_apis import LoginApi,LogoutApi,RegisterApi,BlackList,Delete,DoctorEdit,PatientEdit
 from controllers.Doctor_apis import DoctorList,AppointmentData,Complete,BookSlot,Ids,Deleteappoint
-from controllers.Patient_api import PatientList,PatientAppointment,YourAppointment,UpdatePatient,Name,RecordPatient,PatientHistory,AppointmentDone
+from controllers.Patient_api import PatientList,PatientAppointment,YourAppointment,UpdatePatient,Name,RecordPatient,PatientHistory,AppointmentDone,PatientFullRecord
 
 api.add_resource(LoginApi,'/login')
 api.add_resource(BlackList,'/blacklist')
@@ -70,6 +70,7 @@ api.add_resource(PatientHistory,'/pathis')
 api.add_resource(BookSlot,'/bookslot')
 api.add_resource(Ids,'/userid')
 api.add_resource(Complete,'/comp')
+api.add_resource(PatientFullRecord,'/patfullrec')
 
 
 if __name__ == "__main__":

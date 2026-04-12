@@ -86,39 +86,9 @@ function viewDepartment(dept) {
     
 </template>
 
-<style>
-.department-container {
-  padding: 20px;
+<style scoped>
+.department-container h2 {
+  text-align: center;
 }
-
-/* outer box */
-.dept-box {
-  border: 2px solid black;
-  padding: 15px;
-}
-
-/* each row */
-.dept-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  border: 1px solid gray;
-  padding: 15px;
-  margin-bottom: 10px;
-}
-
-/* department name */
-.dept-name {
-  font-size: 20px;
-}
-
-/* button */
-.view-btn {
-  padding: 8px 15px;
-  border-radius: 10px;
-  border: 2px solid blue;
-  background-color: lightblue;
-  cursor: pointer;
-}
+.department-container { padding: 25px; } /* HEADING */ .department-container h2 { font-weight: 600; color: #1e293b; margin-bottom: 20px; } /* OUTER BOX */ .dept-box { background: #ffffff; border-radius: 12px; padding: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); } /* EACH ROW */ .dept-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 18px; margin-bottom: 10px; border-radius: 10px; background: #f1f5f9; transition: 0.3s; } /* HOVER EFFECT */ .dept-row:hover { background: #e2e8f0; transform: translateY(-2px); } /* NAME */ .dept-name { font-size: 18px; font-weight: 500; color: #0f172a; } /* BUTTON */ .view-btn { padding: 6px 14px; border-radius: 8px; border: none; background: #38bdf8; color: white; font-size: 14px; transition: 0.3s; } .view-btn:hover { background: #0ea5e9; }
 </style>

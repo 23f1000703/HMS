@@ -56,6 +56,8 @@ function Pathis(doc,pat) {
 }
 
 </script>
+
+
 <template>
   <div>
     <h3>Upcoming Appointments</h3>
@@ -132,4 +134,92 @@ function Pathis(doc,pat) {
     </div>
   </div>
 </template>
+
+<style scoped>
+/* HEADING CENTER + STYLE */
+h3 {
+  text-align: center;          /* ⬅️ center */
+  font-weight: 700;
+  font-size: 24px;
+  color: #0f172a;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* TABLE */
+.table {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* HEADER */
+.table th {
+  background: #e2e8f0;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+}
+
+/* ROWS */
+.table td {
+  padding: 13px;
+  border-top: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+/* STRIPED */
+.table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* HOVER */
+.table tbody tr:hover {
+  background: #e0f2fe;
+  transition: 0.2s;
+}
+
+/* 🔥 DEPARTMENT COLUMN SPECIAL */
+.table td:nth-child(4) {
+  font-weight: 500;
+  color: #2563eb;   /* blue highlight */
+}
+
+/* BUTTONS */
+.btn {
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  transition: 0.25s;
+}
+
+/* VIEW / UPDATE */
+button.btn-secondary:nth-child(1) {
+  background: #38bdf8;
+}
+
+button.btn-secondary:nth-child(1):hover {
+  background: #0ea5e9;
+}
+
+/* COMPLETE */
+button.btn-secondary:nth-child(2) {
+  background: #22c55e;
+}
+
+button.btn-secondary:nth-child(2):hover {
+  background: #16a34a;
+}
+
+/* CANCEL */
+a.btn-secondary {
+  background: #ef4444;
+}
+
+a.btn-secondary:hover {
+  background: #dc2626;
+}
+</style>
 

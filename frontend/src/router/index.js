@@ -67,7 +67,7 @@ const router = createRouter({
       component: () => import('../components/Doctor_avail.vue')
     },
     {
-      path: '/updatepat/:id/:patid/:docid',
+      path: '/updatepat/:id/:docid/:patid',
       name: 'MedicalRecord',
       component: () => import('../components/PatientRecord.vue')
     },
@@ -80,6 +80,11 @@ const router = createRouter({
       path: '/patedit/:id',
       name: 'PatientEdit',
       component: () => import('../components/Edit_pat.vue')
+    },
+    {
+      path:'/patfullrec/:patid',
+      name: 'Patientfullrec',
+      component:() => import('../components/Patient_all_rec.vue')
     }
 
   ]

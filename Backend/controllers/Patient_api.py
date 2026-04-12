@@ -206,12 +206,15 @@ class Name(Resource):
         return make_response(jsonify(response), 200)
     
 class PatientHistory(Resource):
+
     def post(self):
         data = request.get_json()
         docid = data.get('doc_id')
         patid = data.get('pat_id')
+        print('pathist',docid,patid)
         doctor =Doctor.query.filter_by(id =docid).first()
         records = MedicalRecord.query.filter_by(doctor_id=docid,patient_id=patid).all()
+        print('records',records)
 
         datarec = []
 
@@ -219,6 +222,41 @@ class PatientHistory(Resource):
             for p in record.prescriptions:
 
                 datarec.append({
+                    "record_id": record.id,
+                    "visit_type": record.visit_type,
+                    "diagnosis": record.diagnosis,
+                    "notes": record.notes,
+                    "appointment_id": record.appointment_id,
+
+                    "medicine_name": p.medicine_name,
+                    "dosage": p.dosage,
+                    "duration": p.duration
+                        
+                })
+
+        return make_response(jsonify(datarec),200)
+
+
+
+class PatientFullRecord(Resource):
+    def post(self):
+        data = request.get_json()
+        patid = data.get('pat_id')
+        print('pathist',patid)
+        records = MedicalRecord.query.filter_by(patient_id=patid).all()
+        print('records',records)
+
+        datarec = []
+
+        for record in records:
+            patient = Patient.query.filter_by(id = record.patient_id).first()
+            doctor = Doctor.query.filter_by(id = record.doctor_id).first()
+            for p in record.prescriptions:
+
+                datarec.append({
+                    "patient_name" : patient.name,
+                    "doc_name": doctor.name,
+                    "dep":doctor.specialization,
                     "record_id": record.id,
                     "visit_type": record.visit_type,
                     "diagnosis": record.diagnosis,

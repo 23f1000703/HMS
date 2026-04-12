@@ -41,6 +41,10 @@ function checkAvailability(docid,patid) {
 function viewDetails(id) {
   router.push(`/qual/${id}`)
 }
+
+function Back(){
+  router.back()
+}
 </script>
 
 <template>
@@ -141,9 +145,132 @@ function viewDetails(id) {
                 view details
               </button>
             </div>
+            
         </div>
+        
 
     </div>
+    <button @click ="Back">Back</button>
   </div>
 </template>
 
+<style scoped>
+/* HEADER */
+.header {
+  padding: 25px;
+  margin-bottom: 20px;
+  width: 100%;              /* ⬅️ full width */
+}
+
+/* MAIN TITLE */
+.header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 15px;
+}
+
+/* SECTION (BOTH BOX SAME WIDTH) */
+.section {
+  background: #ffffff;
+  padding: 20px 22px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+  width: 100%;              /* ⬅️ full width */
+}
+
+/* SECTION TITLE */
+.section h2 {
+  font-size: 21px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.section p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* DOCTOR ROW */
+.section div[v-for] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #f1f5f9;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+/* HOVER */
+.section div[v-for]:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+/* NAME */
+.name {
+  font-size: 17px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* ACTION BUTTONS */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* BUTTON BASE */
+.actions button {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+/* CHECK */
+.actions button:first-child {
+  background: #38bdf8;
+  color: white;
+}
+
+.actions button:first-child:hover {
+  background: #0ea5e9;
+}
+
+/* VIEW */
+.actions button:last-child {
+  background: #64748b;
+  color: white;
+}
+
+.actions button:last-child:hover {
+  background: #475569;
+}
+
+/* BACK BUTTON */
+button {
+  margin-top: 15px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #facc15;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+button:hover {
+  background: #eab308;
+}
+</style>

@@ -142,3 +142,70 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+/* CENTER CARD */
+.col-6 {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* FORM GRID */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* 2 columns */
+  gap: 15px;
+}
+
+/* FULL WIDTH ELEMENTS */
+form .mb-3:nth-child(7),
+form .mb-3:nth-child(8) {
+  grid-column: span 2;   /* Blood group + address full width */
+}
+
+/* BUTTON FULL WIDTH */
+button {
+  grid-column: span 2;
+}
+
+/* HEADING CENTER */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* INPUT STYLING */
+.form-control,
+.form-select,
+textarea {
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #cbd5e1;
+}
+
+/* FOCUS */
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 4px rgba(56, 189, 248, 0.4);
+}
+
+/* BUTTON */
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: #38bdf8;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0ea5e9;
+}
+</style>

@@ -87,4 +87,3 @@ class Prescription(db.Model):
 
 
 
-    

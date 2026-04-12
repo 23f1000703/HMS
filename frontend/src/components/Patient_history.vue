@@ -7,8 +7,9 @@ const role =localStorage.getItem('role')
 console.log('role',role)
 const router = useRouter()
 const route = useRoute()
-const doc_id =role ==='patient'? []: route.params.docid
+const doc_id = route.params.docid
 const pat_id = route.params.patid
+console.log("these are ids",doc_id,pat_id)
 
 
 const name =ref('')

@@ -132,56 +132,83 @@ console.log(schedule.value)
 </template>
 
 <style scoped>
-
-/* Overall container */
-div {
-  max-width: 700px;
-  margin: 20px auto;
+/* HEADING */
+h3 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  color: #0f172a;
+  margin: 20px 0;
 }
 
-/* Row layout */
+/* ROW CARD */
 .row {
-  align-items: center;
-  margin-bottom: 8px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px 10px;
+  margin: 10px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 900px;
 }
 
-/* Date */
+/* DATE COLUMN */
 .col-3 {
-  font-size: 13px;
-  font-weight: 500;
-  color: #374151;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
 }
 
-/* Slot box (small & clean) */
+/* SHIFT BOX */
 .col-4 span {
   display: inline-block;
   width: 100%;
   text-align: center;
-  padding: 6px 8px;
+  border-radius: 8px;
   font-size: 13px;
-  border-radius: 6px;
-  border: 1px solid;
-  transition: all 0.15s ease;
+  font-weight: 500;
 }
 
-/* Available (green - subtle) */
-.text-success {
-  background-color: #f0fdf4;
-  color: #15803d !important;
-  border-color: #bbf7d0;
-}
-
-/* Booked (red - subtle) */
+/* AVAILABLE (RED) */
 .text-danger {
-  background-color: #fef2f2;
-  color: #b91c1c !important;
-  border-color: #fecaca;
+  background: #fee2e2;
+  color: #dc2626 !important;
+  border: none !important;
 }
 
-/* Hover (very light) */
-.col-4 span:hover {
-  opacity: 0.85;
-  cursor: pointer;
+/* AVAILABLE (GREEN actually booked) */
+.text-success {
+  background: #dcfce7;
+  color: #16a34a !important;
+  border: none !important;
 }
 
+/* BUTTON */
+.btn-primary {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 13px;
+  background: #38bdf8;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0ea5e9;
+}
+
+/* BACK BUTTON */
+.col-1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  width: 100%;          /* ⬅️ full width so it centers properly */
+}
+
+.btn-danger {
+  border-radius: 10px;
+  padding: 8px 20px;    /* ⬅️ thoda bada */
+  font-size: 15px;      /* ⬅️ text thoda bada */
+  font-weight: 500;
+}
 </style>
