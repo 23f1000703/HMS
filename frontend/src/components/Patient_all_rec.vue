@@ -38,37 +38,24 @@ function goBack() {
 
 
 async function exportCSV() {
-  console.log("Export CSV clicked")
+ const response = await fetch('http://127.0.0.1:5000/api/exportcsv', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        patient_id: pat_id,
+        email: "test@gmail.com"  
+      })
+    })
 
-  const pat_id = Number(localStorage.getItem("patId"))
+    const result = await response.json()
 
-  const res = await fetch('http://127.0.0.1:5000/api/appointmentsdone')
-  const data = await res.json()
+    console.log("Task started:", result)
 
-  const patientData = data.filter(item => item.patient_id === pat_id)
-
-  if (!patientData.length) {
-    alert("No data found")
-    return
-  }
-
-  const headers = Object.keys(patientData[0]).join(',')
-  const rows = patientData.map(row =>
-    Object.values(row).map(val => `"${val}"`).join(',')
-  )
-
-  const csv = [headers, ...rows].join('\n')
-
-  const blob = new Blob([csv], { type: 'text/csv' })
-  const url = window.URL.createObjectURL(blob)
-
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `patient_${pat_id}.csv`
-  a.click()
-
-  window.URL.revokeObjectURL(url)
+    alert("CSV file generated") 
 }
+
 </script>
 
 <template>

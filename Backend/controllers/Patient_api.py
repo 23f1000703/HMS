@@ -3,6 +3,7 @@ from flask import request,jsonify,make_response
 from flask_login import current_user
 from controllers.user_database import user_datastore
 from controllers.model import Patient, Appointment ,Prescription , MedicalRecord,Doctor
+from controllers.task import generate_patient_csv
 from controllers.database import db
 
 class PatientList(Resource):
@@ -236,8 +237,6 @@ class PatientHistory(Resource):
 
         return make_response(jsonify(datarec),200)
 
-
-
 class PatientFullRecord(Resource):
     def post(self):
         data = request.get_json()
@@ -270,3 +269,15 @@ class PatientFullRecord(Resource):
                 })
 
         return make_response(jsonify(datarec),200)
+
+
+class ExportCSV(Resource):
+    def post(self):
+        data = request.get_json()
+
+        patient_id = data.get("patient_id")
+        email = data.get("email")
+
+        generate_patient_csv.delay(patient_id, email)
+
+        return {"msg": "CSV generating... check mail"}

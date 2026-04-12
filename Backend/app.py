@@ -3,6 +3,8 @@ from flask_security import Security
 from flask_restful import Api
 from flask_cors import CORS
 
+
+
 from controllers.database import db
 from controllers.user_database import user_datastore
 from controllers.config import Config
@@ -12,6 +14,7 @@ def create_app():
     app.config.from_object(Config) #---load settings of config class
 
     db.init_app(app)#----This bind app and database
+
 
     security= Security(app , user_datastore)#------This connect app for security
 
@@ -47,8 +50,10 @@ def index():
 
 from controllers.authentication_apis import LoginApi,LogoutApi,RegisterApi,BlackList,Delete,DoctorEdit,PatientEdit
 from controllers.Doctor_apis import DoctorList,AppointmentData,Complete,BookSlot,Ids,Deleteappoint
-from controllers.Patient_api import PatientList,PatientAppointment,YourAppointment,UpdatePatient,Name,RecordPatient,PatientHistory,AppointmentDone,PatientFullRecord
+from controllers.Patient_api import PatientList,PatientAppointment,YourAppointment,UpdatePatient,Name,RecordPatient,PatientHistory,AppointmentDone,PatientFullRecord,ExportCSV
 
+
+api.add_resource(ExportCSV, '/exportcsv')
 api.add_resource(LoginApi,'/login')
 api.add_resource(BlackList,'/blacklist')
 api.add_resource(LogoutApi,'/logout')
