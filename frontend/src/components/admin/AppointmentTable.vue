@@ -1,5 +1,5 @@
 <script setup >
-import { ref } from 'vue'
+import { ref,onMounted} from 'vue'
 import { useRouter } from 'vue-router'
 
 
@@ -25,8 +25,8 @@ const response = await fetch('http://127.0.0.1:5000/api/patappointments',{
         console.log('docappoint',DoctorAppoints.value)
       }
 
-getyourAppointments()
 
+getyourAppointments()
 
 
 async function Complete(id){
